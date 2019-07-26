@@ -8,13 +8,21 @@
 </style>
 <head>
   <body>
-    <div>
-      <p>Hello World!</p>
-      <p>Hello World2!</p>
-    </div>
+    <ul id="list">
+    </ul>
   </body>
   <script>
-    const first = document.querySelector('div p:first-child');
-    console.log(first);
+    const data = [
+      {
+        value: 7;
+        lucky: true;
+      },
+      {
+        value: 3
+      }
+    ];
+
+    const list = document.querySelector('#list');
+    // querySelector uses css selectors # for id . for class, whereas getElement by id uses strings 'ul'
   </script>
 </head>
