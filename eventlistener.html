@@ -18,14 +18,27 @@
     </div>
   </body>
   <script>
+    const firstP = document.querySelector('p');
     const div = document.querySelector('div');
 
     div.addEventListener('click', (ev) => {
-      // console.log(ev.target);
-      // add event for clicking on <p> tags
-      if (ev.target.tagName === 'P') { // note: tagName is always UPPERCASE
-        console.log(ev.target.innerHTML);
-      }
-    })
+      console.log('div click');
+      console.log(ev.target);
+    });
+
+    firstP.addEventListener('click', (ev) => {
+      console.log('p click');
+      console.log(ev.target);
+      // prevent 'bubbling up' (div event & p event), so just p event
+      ev.stopPropagation();
+    });
+
+    // div.addEventListener('click', (ev) => {
+    //   // console.log(ev.target);
+    //   // add event for clicking on <p> tags
+    //   if (ev.target.tagName === 'P') { // note: tagName is always UPPERCASE
+    //     console.log(ev.target.innerHTML);
+    //   }
+    // })
   </script>
 </head>
