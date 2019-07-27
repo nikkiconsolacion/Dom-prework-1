@@ -5,6 +5,9 @@
   div p:last-child {
     color: blue;
   }
+  .lucky {
+    background-color: red;
+  }
 </style>
 <head>
   <body>
@@ -15,7 +18,7 @@
     const data = [
       {
         value: 7,
-        lucky: true
+        isLucky: true
       },
       {
         value: 3
@@ -27,7 +30,11 @@
     data.forEach( item => {
       // for each obj in the data arr, create a list element <li></li>
       const li = document.createElement('li');
-      // create a span for each
+      // if the number is lucky, add a class 'lucky' to the li
+      if (item.isLucky) {
+        li.className = 'lucky';
+      }
+      // create a span for each li
       const span = document.createElement('span');
       // fill span with number from data arr <span>7</span>
       span.innerHTML = item.value;
