@@ -37,9 +37,10 @@
       // for each obj in the data arr, create a list element <li></li>
       const li = document.createElement('li');
       li.addEventListener('click', () => {
-        //toggle whether the number is lucky or not
-        obj.isLucky = !obj.isLucky;
-        console.log(obj);
+        // toggle whether obj.isLucky is true or false.
+        obj.isLucky = !obj.isLucky; // modifies the obj
+        // toggle whether li element has class 'lucky' or not, changes css on click
+        li.classList.toggle('lucky');
       });
       // if the number is lucky, add a class 'lucky' to the li
       if (obj.isLucky) {
