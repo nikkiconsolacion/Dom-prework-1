@@ -14,15 +14,27 @@
   <script>
     const data = [
       {
-        value: 7;
-        lucky: true;
+        value: 7,
+        lucky: true
       },
       {
         value: 3
       }
     ];
 
-    const list = document.querySelector('#list');
+    const list = document.querySelector('#list'); //<ul id="list"><ul>
     // querySelector uses css selectors # for id . for class, whereas getElement by id uses strings 'ul'
+    data.forEach( item => {
+      // for each obj in the data arr, create a list element <li></li>
+      const li = document.createElement('li');
+      // create a span for each
+      const span = document.createElement('span');
+      // fill span with number from data arr <span>7</span>
+      span.innerHTML = item.value;
+      // append the span inside li <li><span>7</span></li>
+      li.append(span);
+      // append the li inside our ul
+      list.append(li);
+    })
   </script>
 </head>
