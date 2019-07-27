@@ -1,15 +1,17 @@
-<style>
-  div p:first-child {
-    color: red;
-  }
-  div p:last-child {
-    color: blue;
-  }
-  .lucky {
-    background-color: red;
-  }
-</style>
+<html>
 <head>
+    <style>
+        /* div p:first-child {
+          color: red;
+        }
+        div p:last-child {
+          color: blue;
+        } */
+        .lucky {
+          background-color: red;
+        }
+      </style>
+</head>
   <body>
     <ul id="list">
     </ul>
@@ -22,26 +24,35 @@
       },
       {
         value: 3
+      },
+      {
+        value: 46,
+        isLucky: true
       }
     ];
 
     const list = document.querySelector('#list'); //<ul id="list"><ul>
     // querySelector uses css selectors # for id . for class, whereas getElement by id uses strings 'ul'
-    data.forEach( item => {
+    data.forEach( obj => {
       // for each obj in the data arr, create a list element <li></li>
       const li = document.createElement('li');
+      li.addEventListener('click', () => {
+        //toggle whether the number is lucky or not
+        obj.isLucky = !obj.isLucky;
+        console.log(obj);
+      });
       // if the number is lucky, add a class 'lucky' to the li
-      if (item.isLucky) {
+      if (obj.isLucky) {
         li.className = 'lucky';
       }
       // create a span for each li
       const span = document.createElement('span');
       // fill span with number from data arr <span>7</span>
-      span.innerHTML = item.value;
+      span.innerHTML = obj.value;
       // append the span inside li <li><span>7</span></li>
       li.append(span);
       // append the li inside our ul
       list.append(li);
-    })
+    });
   </script>
-</head>
+</html>
