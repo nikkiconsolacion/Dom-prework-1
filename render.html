@@ -26,10 +26,18 @@
       ];
 
       const list = document.querySelector('#list');
-      // create a render method
+      list.addEventListener('click', (ev) => {
+        if (ev.target.tagName === 'LI') {
+          const idx = ev.target.getAttribute('data-idx');
+          numbers[idx].isLucky = !numbers[idx].isLucky;
+          render(numbers, list);
+        }
+      })
+      // create a function render that maps over every item in numbers array and creates a <li>< for each
       const render = (state, container) => {
-        const html = state.map( item => `<li><span>${item.value}</span></li>`);
-        console.log(html);
+        const html = state.map( (item, idx) => `<li data-idx='${idx}' class='${item.isLucky ? "lucky" : ''}'>${item.value}</li>`).join('');
+        // ${item.isLucky ? "lucky" : ''} ternary for if item.isLucky === true, add class="lucky" else no class. .join turns the array into a string
+        container.innerHTML = html;
       }
       render(numbers, list);
     </script>
