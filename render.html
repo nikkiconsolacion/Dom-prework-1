@@ -26,6 +26,11 @@
       ];
 
       const list = document.querySelector('#list');
-
+      // create a render method
+      const render = (state, container) => {
+        const html = state.map( item => `<li><span>${item.value}</span></li>`);
+        console.log(html);
+      }
+      render(numbers, list);
     </script>
 </html>
