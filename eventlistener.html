@@ -15,6 +15,10 @@
     <div>
       <p class='red'>Hello World!</p>
       <p class ='blue'>Hello World2!</p>
+      <form>
+        <input name='foo'/>
+        <button>Click</button>
+      </form>
     </div>
   </body>
   <script>
@@ -24,6 +28,7 @@
     div.addEventListener('click', (ev) => {
       console.log('div click');
       console.log(ev.target);
+      ev.preventDefault(); // prevents page from reloading & submitting form
     });
 
     firstP.addEventListener('click', (ev) => {
